@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <header class="site-header">
+  <div class="logo">LOUD工進行式</div>
+  <nav class="main-nav">
+    <a href="#home" class="nav-link home-link">首頁</a>
+    <a href="#game" class="nav-link">遊戲</a>
+    <a href="#background" class="nav-link">背景</a>
+    <a href="#characters" class="nav-link">角色</a>
+    <a href="#stages" class="nav-link">關卡介紹</a>
+    <a href="#authors" class="nav-link">作者</a>
+  </nav>
+  <a href="#contact" class="contact-btn">聯絡方式</a>
+</header>
+
+<!-- 首頁 / Hero -->
+<section id="home" class="hero">
+  <div class="hero-overlay">
+    <p class="hero-kicker">LOUD工進行式</p>
+    <h1 class="hero-title">Classic Modern &amp; Unique Design</h1>
+    <p class="hero-subtitle">
+      一款結合勞動法與工作權益的互動卡牌遊戲，在遊玩中學會保護自己。
+    </p>
+    <div class="hero-actions">
+      <button class="btn primary scroll-to-game">開始遊戲</button>
+      <button class="btn ghost scroll-to-background">了解背景</button>
+    </div>
+  </div>
+</section>
+
+<!-- 遊戲 -->
+<section id="game" class="section game-section">
+  <div class="section-header">
+    <p class="section-kicker">GAME</p>
+    <h2 class="section-title">直接在網頁中遊玩 LOUD 工進行式</h2>
+    <p class="section-desc">
+      將 Unity / WebGL 或其他平台的遊戲頁嵌入在這裡，讓玩家不需要跳轉就能體驗。
+    </p>
+  </div>
+
+  <div class="game-frame">
+    <!-- TODO：把 src 改成你的遊戲網址 -->
+    <iframe
+      src="https://example.com"
+      title="遊戲嵌入"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+<!-- 背景介紹 -->
+<section id="background" class="section background-section">
+  <div class="background-grid">
+    <div class="background-text">
+      <p class="section-kicker">BACKGROUND</p>
+      <h2 class="section-title">我們想用遊戲說勞動現場的故事</h2>
+      <p>
+        LOUD工進行式 以真實勞動案例為題材，透過關卡與卡牌設計，讓玩家在選擇、防禦、反擊的過程中，認識
+        勞基法與工作權益。遊戲中的每一張卡片，都來自實際職場情境與學習目標。
+      </p>
+      <p>
+        這段文字可以換成你的研究背景、動機、目標受眾等等，也可以加入專題名稱與指導老師資訊。
+      </p>
+    </div>
+    <div class="background-image-card">
+      <div class="bg-image"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 角色介紹 -->
+<section id="characters" class="section">
+  <div class="section-header">
+    <p class="section-kicker">CHARACTERS</p>
+    <h2 class="section-title">在職場裡，他們代表不同的勞動身影</h2>
+  </div>
+
+  <div class="card-grid character-grid">
+    <article class="character-card">
+      <img
+        src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80"
+        alt="角色A"
+      />
+      <div class="character-info">
+        <h3>新鮮人・阿光</h3>
+        <p>剛進入職場的菜鳥設計師，總覺得「不好意思拒絕」，也是玩家最容易代入的角色。</p>
+      </div>
+    </article>
+
+    <article class="character-card">
+      <img
+        src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80"
+        alt="角色B"
+      />
+      <div class="character-info">
+        <h3>前輩・小晴</h3>
+        <p>看過太多加班修羅場，知道一些眉角，但也在公司文化和自我價值之間拉扯。</p>
+      </div>
+    </article>
+
+    <article class="character-card">
+      <img
+        src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=800&q=80"
+        alt="角色C"
+      />
+      <div class="character-info">
+        <h3>勞動小幫手</h3>
+        <p>化身為遊戲中的系統導覽角色，用輕鬆的語氣解釋條文，給玩家實用提示。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 關卡介紹：輪播卡片 -->
+<section id="stages" class="section stages-section">
+  <div class="section-header">
+    <p class="section-kicker">STAGES</p>
+    <h2 class="section-title">從試用期到離職，每一關都是選擇題</h2>
+  </div>
+
+  <div class="stage-slider">
+    <div class="stage-track">
+      <!-- 第一組 3 關 -->
+      <div class="stage-group">
+        <div
+          class="stage-card"
+          style="--bg:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80')"
+        >
+          <div class="stage-card-content">
+            <span class="stage-no">01</span>
+            <h3>試用期陷阱</h3>
+            <p>玩家會遇到「延長試用期」與「無給實習」等情境，學會辨識不合理的要求。</p>
+            <a href="#" class="stage-link">Read More</a>
+          </div>
+        </div>
+
+        <div
+          class="stage-card"
+          style="--bg:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80')"
+        >
+          <div class="stage-card-content">
+            <span class="stage-no">02</span>
+            <h3>加班文化</h3>
+            <p>面對「責任制」與「打卡後繼續工作」，讓玩家思考什麼才是合理工時。</p>
+            <a href="#" class="stage-link">Read More</a>
+          </div>
+        </div>
+
+        <div
+          class="stage-card"
+          style="--bg:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80')"
+        >
+          <div class="stage-card-content">
+            <span class="stage-no">03</span>
+            <h3>不當指令</h3>
+            <p>主管要求做與職務無關的危險工作，玩家必須決定如何保護自己。</p>
+            <a href="#" class="stage-link">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第二組 3 關 -->
+      <div class="stage-group">
+        <div
+          class="stage-card"
+          style="--bg:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80')"
+        >
+          <div class="stage-card-content">
+            <span class="stage-no">04</span>
+            <h3>職場騷擾</h3>
+            <p>卡片會呈現不同類型的騷擾情境，讓玩家理解蒐證與求助管道。</p>
+            <a href="#" class="stage-link">Read More</a>
+          </div>
+        </div>
+
+        <div
+          class="stage-card"
+          style="--bg:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80')"
+        >
+          <div class="stage-card-content">
+            <span class="stage-no">05</span>
+            <h3>權益談判</h3>
+            <p>模擬與主管協商調班、請假與加班費的過程，練習如何有自信說話。</p>
+            <a href="#" class="stage-link">Read More</a>
+          </div>
+        </div>
+
+        <div
+          class="stage-card"
+          style="--bg:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80')"
+        >
+          <div class="stage-card-content">
+            <span class="stage-no">06</span>
+            <h3>離職與未來</h3>
+            <p>最後一關讓玩家回顧整個旅程，思考自己下一步與職涯選擇。</p>
+            <a href="#" class="stage-link">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-dots">
+    <button class="stage-dot active" data-slide="0"></button>
+    <button class="stage-dot" data-slide="1"></button>
+  </div>
+</section>
+
+<!-- 作者介紹 -->
+<section id="authors" class="section authors-section">
+  <div class="section-header">
+    <p class="section-kicker">TEAM</p>
+    <h2 class="section-title">LOUD工進行式 開發團隊</h2>
+  </div>
+
+  <div class="card-grid author-grid">
+    <article class="author-card">
+      <div class="author-image">
+        <img
+          src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=800&q=80"
+          alt="作者1"
+        />
+        <div class="author-overlay">
+          <a href="#" aria-label="Facebook">F</a>
+          <a href="#" aria-label="Twitter">T</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="author-info">
+        <h3>顏智勇</h3>
+        <p>企劃 / 系統設計</p>
+      </div>
+    </article>
+
+    <article class="author-card">
+      <div class="author-image">
+        <img
+          src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80"
+          alt="作者2"
+        />
+        <div class="author-overlay">
+          <a href="#" aria-label="Facebook">F</a>
+          <a href="#" aria-label="Twitter">T</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="author-info">
+        <h3>組員 A</h3>
+        <p>美術 / UI 設計</p>
+      </div>
+    </article>
+
+    <article class="author-card">
+      <div class="author-image">
+        <img
+          src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80"
+          alt="作者3"
+        />
+        <div class="author-overlay">
+          <a href="#" aria-label="Facebook">F</a>
+          <a href="#" aria-label="Twitter">T</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="author-info">
+        <h3>組員 B</h3>
+        <p>程式 / 系統實作</p>
+      </div>
+    </article>
+
+    <article class="author-card">
+      <div class="author-image">
+        <img
+          src="https://images.unsplash.com/photo-1525134155941-2c4f79935b2d?auto=format&fit=crop&w=800&q=80"
+          alt="作者4"
+        />
+        <div class="author-overlay">
+          <a href="#" aria-label="Facebook">F</a>
+          <a href="#" aria-label="Twitter">T</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="author-info">
+        <h3>指導老師</h3>
+        <p>指導 / 研究諮詢</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 頁尾 / 聯絡方式 -->
+<footer id="contact" class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-logo">LOUD工進行式</div>
+      <p>
+        透過遊戲化設計與勞動案例，讓玩家在安全的情境中練習保護自己，了解職場權益。
+      </p>
+      <div class="footer-social">
+        <a href="#">F</a>
+        <a href="#">YT</a>
+        <a href="#">IG</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>網站導覽</h4>
+      <ul>
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#game">遊戲</a></li>
+        <li><a href="#background">背景</a></li>
+        <li><a href="#characters">角色</a></li>
+        <li><a href="#stages">關卡介紹</a></li>
+        <li><a href="#authors">作者</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>作品連結</h4>
+      <ul>
+        <li><a href="#">專題簡報下載</a></li>
+        <li><a href="#">遊戲說明文件</a></li>
+        <li><a href="#">研究計畫 / 論文</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>聯絡資訊</h4>
+      <ul>
+        <li>Email：demo@example.com</li>
+        <li>學校：嘉義大學 數位學習設計與管理學系</li>
+        <li>備註：此頁面為作品集展示用</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 LOUD工進行式. All rights reserved.</p>
+  </div>
+</footer>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
