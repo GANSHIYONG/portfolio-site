@@ -273,13 +273,13 @@ img {
 .character-track {
   display: flex;
   transition: transform 0.5s ease;
-  gap: 24px;            /* 🔸新增：卡片間距，可改成 2rem、24px 等 */
+  gap: 24px; /* 卡片間距 */
 }
 
-/* 一次顯示三張 */
+/* 一次顯示三張（扣掉 2 個 gap = 48px） */
 .character-card {
-  flex: 0 0 calc(100% / 3);
-  max-width: calc(100% / 3);
+  flex: 0 0 calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
   background: #fff;
   border-radius: 1.25rem;
   overflow: hidden;
