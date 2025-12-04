@@ -109,23 +109,36 @@ let charTimer = null;
 // 更新位置
 function updateCharacterSlider() {
   if (!charTrack) return;
-  
-  const gap = 24; // 你設定的 gap 寬度（px）
-  const cardWidth = charCards[0].offsetWidth + gap;
-  
-  charTrack.style.transform = `translateX(-${charIndex * cardWidth}px)`;
+
+  // 取得 CSS 中設定的 gap 數值（自動讀取，不用手動填）
+  const trackStyle = window.getComputedStyle(charTrack);
+  const gap = parseInt(trackStyle.columnGap || trackStyle.gap || 0);
+
+  // 取得卡片實際寬度（包含 responsive）
+  const cardWidth = charCards[0].offsetWidth;
+
+  // 實際移動距離 = 卡片寬度 + gap
+  const moveX = (cardWidth + gap) * charIndex;
+
+  charTrack.style.transform = `translateX(-${moveX}px)`;
 
 }
 
 // 切換到指定 index（自動處理循環）
 function goToCharacter(index) {
-  if (index < 0) {
+  const totalCards = charCards.length;
+
+  // VISIBLE_COUNT = 3（一次顯示三張）
+  const maxIndex = totalCards - VISIBLE_COUNT;
+
+  if (newIndex < 0) {
     charIndex = maxIndex;
-  } else if (index > maxIndex) {
+  } else if (newIndex > maxIndex) {
     charIndex = 0;
   } else {
-    charIndex = index;
+    charIndex = newIndex;
   }
+
   updateCharacterSlider();
 }
 
