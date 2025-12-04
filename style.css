@@ -252,30 +252,55 @@ img {
   background-position: center;
 }
 
-/* 角色卡片 */
+/* 通用卡片網格（給作者等用） */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
 }
 
+/* 角色滑動區 */
+.character-slider {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.character-window {
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.character-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* 一次顯示三張 */
 .character-card {
+  flex: 0 0 calc(100% / 3);
+  max-width: calc(100% / 3);
   background: #fff;
   border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
   transform: translateY(0);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .character-card img {
-  height: 220px;
-  width: 100%;
-  object-fit: cover;
+  width: 70%;
+  height: auto;
+  margin-top: 1.5rem;
+  object-fit: contain; /* 確保圖片完整顯示 */
 }
 
 .character-info {
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 1.25rem 1.5rem 1.75rem;
+  text-align: left;
+  width: 100%;
 }
 
 .character-info h3 {
@@ -297,6 +322,39 @@ img {
 .character-card:hover .character-info h3 {
   transform: translateY(-4px);
   font-size: 1.1rem;
+}
+
+/* 角色左右箭頭 */
+.char-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1b1f2a;
+  font-size: 1.4rem;
+  z-index: 5;
+}
+
+.char-arrow-left {
+  left: -20px;
+}
+
+.char-arrow-right {
+  right: -20px;
+}
+
+.char-arrow:hover {
+  background: #4e8cff;
+  color: #fff;
 }
 
 /* 關卡輪播區 */
@@ -597,6 +655,12 @@ img {
   .footer-inner {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* 較窄視窗時：一次只顯示兩張角色卡 */
+  .character-card {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -610,5 +674,19 @@ img {
 
   .hero {
     padding: 0 1.5rem;
+  }
+
+  /* 手機：一次顯示一張角色卡 */
+  .character-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .char-arrow-left {
+    left: 4px;
+  }
+
+  .char-arrow-right {
+    right: 4px;
   }
 }
