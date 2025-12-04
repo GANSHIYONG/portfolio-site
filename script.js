@@ -102,52 +102,56 @@ const btnPrev = document.querySelector(".char-arrow-left");
 const btnNext = document.querySelector(".char-arrow-right");
 
 const VISIBLE_COUNT = 3; // 一次顯示 3 張
-const maxIndex = Math.max(charCards.length - VISIBLE_COUNT, 0);
 let charIndex = 0;
 let charTimer = null;
 
-// 更新位置
+// =========================
+//  更新卡片位置（自動計算卡片寬度 + gap）
+// =========================
 function updateCharacterSlider() {
-  if (!charTrack) return;
+  if (!charTrack || charCards.length === 0) return;
 
-  // 取得 CSS 中設定的 gap 數值（自動讀取，不用手動填）
+  // 讀取 CSS 中的 gap
   const trackStyle = window.getComputedStyle(charTrack);
-  const gap = parseInt(trackStyle.columnGap || trackStyle.gap || 0);
+  const gap = parseInt(trackStyle.gap || trackStyle.columnGap || "0", 10);
 
-  // 取得卡片實際寬度（包含 responsive）
+  // 取得卡片實際寬度（RWD 自適應）
   const cardWidth = charCards[0].offsetWidth;
 
-  // 實際移動距離 = 卡片寬度 + gap
+  // 位移距離 = （卡片寬度 + gap）× index
   const moveX = (cardWidth + gap) * charIndex;
 
   charTrack.style.transform = `translateX(-${moveX}px)`;
-
 }
 
-// 切換到指定 index（自動處理循環）
+// =========================
+//  循環切換卡片
+// =========================
 function goToCharacter(index) {
   const totalCards = charCards.length;
-
-  // VISIBLE_COUNT = 3（一次顯示三張）
   const maxIndex = totalCards - VISIBLE_COUNT;
 
-  if (newIndex < 0) {
+  if (index < 0) {
+    // 從第一張往左 → 跳到最後一組
     charIndex = maxIndex;
-  } else if (newIndex > maxIndex) {
+  } else if (index > maxIndex) {
+    // 從最後一組往右 → 回到第一組
     charIndex = 0;
   } else {
-    charIndex = Index;
+    charIndex = index;
   }
 
   updateCharacterSlider();
 }
 
-// 自動輪播
+// =========================
+//  自動輪播（5 秒）
+// =========================
 function startCharacterAutoSlide() {
   stopCharacterAutoSlide();
   charTimer = setInterval(() => {
     goToCharacter(charIndex + 1);
-  }, 5000); // 5 秒移動一張
+  }, 5000);
 }
 
 function stopCharacterAutoSlide() {
@@ -157,7 +161,9 @@ function stopCharacterAutoSlide() {
   }
 }
 
-// 左右按鈕事件
+// =========================
+//  左右按鈕事件
+// =========================
 if (btnPrev) {
   btnPrev.addEventListener("click", () => {
     goToCharacter(charIndex - 1);
@@ -171,6 +177,9 @@ if (btnNext) {
     startCharacterAutoSlide();
   });
 }
+
+// RWD：視窗改變大小時，自動重新對齊
+window.addEventListener("resize", updateCharacterSlider);
 
 // 初始化
 updateCharacterSlider();
