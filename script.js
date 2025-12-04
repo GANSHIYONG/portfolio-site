@@ -136,7 +136,7 @@ function goToCharacter(index) {
   } else if (newIndex > maxIndex) {
     charIndex = 0;
   } else {
-    charIndex = newIndex;
+    charIndex = Index;
   }
 
   updateCharacterSlider();
