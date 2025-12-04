@@ -273,6 +273,7 @@ img {
 .character-track {
   display: flex;
   transition: transform 0.5s ease;
+  gap: 24px;            /* 🔸新增：卡片間距，可改成 2rem、24px 等 */
 }
 
 /* 一次顯示三張 */
