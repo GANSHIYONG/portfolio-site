@@ -91,3 +91,70 @@ stageDots.forEach((dot) => {
 
 goToStageSlide(0);
 startStageAutoSlide();
+
+/* =========================
+   角色卡片輪播（3 張一組）
+   ========================= */
+
+const charTrack = document.querySelector(".character-track");
+const charCards = document.querySelectorAll(".character-card");
+const btnPrev = document.querySelector(".char-arrow-left");
+const btnNext = document.querySelector(".char-arrow-right");
+
+const VISIBLE_COUNT = 3; // 一次顯示 3 張
+const maxIndex = Math.max(charCards.length - VISIBLE_COUNT, 0);
+let charIndex = 0;
+let charTimer = null;
+
+// 更新位置
+function updateCharacterSlider() {
+  if (!charTrack) return;
+  const percentPerCard = 100 / VISIBLE_COUNT;
+  charTrack.style.transform = `translateX(-${charIndex * percentPerCard}%)`;
+}
+
+// 切換到指定 index（自動處理循環）
+function goToCharacter(index) {
+  if (index < 0) {
+    charIndex = maxIndex;
+  } else if (index > maxIndex) {
+    charIndex = 0;
+  } else {
+    charIndex = index;
+  }
+  updateCharacterSlider();
+}
+
+// 自動輪播
+function startCharacterAutoSlide() {
+  stopCharacterAutoSlide();
+  charTimer = setInterval(() => {
+    goToCharacter(charIndex + 1);
+  }, 5000); // 5 秒移動一張
+}
+
+function stopCharacterAutoSlide() {
+  if (charTimer) {
+    clearInterval(charTimer);
+    charTimer = null;
+  }
+}
+
+// 左右按鈕事件
+if (btnPrev) {
+  btnPrev.addEventListener("click", () => {
+    goToCharacter(charIndex - 1);
+    startCharacterAutoSlide(); // 手動後重新計時
+  });
+}
+
+if (btnNext) {
+  btnNext.addEventListener("click", () => {
+    goToCharacter(charIndex + 1);
+    startCharacterAutoSlide();
+  });
+}
+
+// 初始化
+updateCharacterSlider();
+startCharacterAutoSlide();
