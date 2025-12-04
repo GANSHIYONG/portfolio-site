@@ -109,8 +109,12 @@ let charTimer = null;
 // 更新位置
 function updateCharacterSlider() {
   if (!charTrack) return;
-  const percentPerCard = 100 / VISIBLE_COUNT;
-  charTrack.style.transform = `translateX(-${charIndex * percentPerCard}%)`;
+  
+  const gap = 24; // 你設定的 gap 寬度（px）
+  const cardWidth = charCards[0].offsetWidth + gap;
+  
+  charTrack.style.transform = `translateX(-${charIndex * cardWidth}px)`;
+
 }
 
 // 切換到指定 index（自動處理循環）
