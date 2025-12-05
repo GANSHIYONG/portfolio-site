@@ -1,7 +1,21 @@
 <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>LOUD工進行式</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
 <html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="LOUD工進行式｜互動勞動教育遊戲｜作品集網站。包含遊戲背景、角色介紹、關卡展示、作者資訊等完整介紹。">
+    <meta name="robots" content="index, follow">
+
     <title>LOUD工進行式</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -17,11 +31,31 @@
         <a href="#stages" class="nav-link">關卡介紹</a>
         <a href="#authors" class="nav-link">作者</a>
       </nav>
-      <a href="#contact" class="contact-btn">聯絡方式</a>
+      <a href="#contact" class="contact-btn">下載游戲</a>
     </header>
 
     <!-- 首頁 / Hero -->
     <section id="home" class="hero">
+      <!-- 新增：會左右滑動的背景輪播 -->
+      <div class="hero-slider">
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/author/Cover.JPG');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/author/ALL.jpg');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/01.jpg');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/02.jpg');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/03.jpg');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/04.jpg');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/05.jpg');"></div>
+        <div class="hero-slide"
+             style="background-image: url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/06.jpg');"></div>
+      </div>
+      
       <div class="hero-overlay">
         <p class="hero-kicker">國立嘉義大學 數位學習設計與管理學系</p>
         <h1 class="hero-title">LOUD工進行式</h1>
@@ -60,14 +94,19 @@
     <section id="background" class="section background-section">
       <div class="background-grid">
         <div class="background-text">
-          <p class="section-kicker">BACKGROUND</p>
-          <h2 class="section-title">我們想用遊戲說勞動現場的故事</h2>
+          <p class="section-kicker">我們想用遊戲說勞動現場的故事</p>
+          <h2 class="section-title">背景介紹</h2>
           <p>
-            LOUD工進行式 以真實勞動案例為題材，透過關卡與卡牌設計，讓玩家在選擇、防禦、反擊的過程中，認識
-            勞基法與工作權益。遊戲中的每一張卡片，都來自實際職場情境與學習目標。
+            《Loud 工進行式》是一款以青少年打工族為核心視角，結合勞動法知識、詐騙防範與就業歧視議題的互動敘事遊戲。故事主角「莓莓」是一名17 歲的學生，因為想換手機而開始人生第一份打工，卻從入職第一天起就面臨各種職場亂象——制服自行購買、未簽契約、未投保勞健保、加班無給、颱風天上班只給免費飲料等。透過與同事、朋友與「錢錢仙子」的對話，玩家逐步了解最低工資、加班費、國定假日薪資、職安規範、勞退提撥等基本權益。
           </p>
           <p>
-            這段文字可以換成你的研究背景、動機、目標受眾等等，也可以加入專題名稱與指導老師資訊。
+            隨著劇情推進，莓莓又遇到學姊的職災案例、職場安全被忽視、未成年工讀生被迫從事危險工作等情境。玩家將在互動任務中協助辨識違法片段、對應法條、判斷雇主義務，並一步步揭露真相。
+          </p>
+          <p>
+            故事後半更呈現詐騙型打工陷阱與就業歧視問題，例如要求先付押金、高薪誘惑、模糊合約內容，以及以「制服尺寸」要求錄取資格的容貌歧視。玩家需要透過解謎、選擇題與情境判斷協助莓莓提出申訴，甚至成功讓公司遭到裁罰。
+          </p>
+          <p>
+            整體故事以輕鬆幽默的語氣包裝嚴肅議題，讓玩家在娛樂中理解自身勞動權益，並培養辨識風險與勇於求助的能力，成為下一位「勞權守門人」。
           </p>
         </div>
         <div class="background-image-card">
@@ -79,8 +118,8 @@
     <!-- 角色介紹：滑動輪播 -->
     <section id="characters" class="section">
       <div class="section-header">
-        <p class="section-kicker">CHARACTERS</p>
-        <h2 class="section-title">在職場裡，他們代表不同的勞動身影</h2>
+        <p class="section-kicker">在職場裡，他們代表不同的勞動身影</p>
+        <h2 class="section-title">人物介紹</h2>
       </div>
 
       <div class="character-slider">
@@ -203,125 +242,145 @@
     </section>
 
     <!-- 關卡介紹：輪播卡片（原本的保持不變） -->
+    <!-- 關卡介紹：改版後，一次只顯示一張卡片 -->
     <section id="stages" class="section stages-section">
       <div class="section-header">
-        <p class="section-kicker">STAGES</p>
-        <h2 class="section-title">從試用期到離職，每一關都是選擇題</h2>
+        <p class="section-kicker">從試用期到離職，每一關都是選擇題</p>
+        <h2 class="section-title">關卡介紹</h2>
       </div>
 
       <div class="stage-slider">
-        <div class="stage-track">
-          <!-- 第一組 3 關 -->
-          <div class="stage-group">
-            <div
+        <!-- 左箭頭 -->
+        <button class="stage-arrow stage-arrow-left" aria-label="上一關">
+          &#10094;
+        </button>
+
+        <!-- 卡片視窗 -->
+        <div class="stage-window">
+          <div class="stage-track">
+            <!-- 01 -->
+            <article
               class="stage-card"
-              style="--bg:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80')"
+              style="--bg:url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/01.jpg')"
             >
               <div class="stage-card-content">
                 <span class="stage-no">01</span>
-                <h3>試用期陷阱</h3>
+                <h3>我是草莓族嗎？</h3>
                 <p>
-                  玩家會遇到「延長試用期」與「無給實習」等情境，學會辨識不合理的要求。
+                  描繪莓莓初入打工職場所面臨的亂象：未簽契約、未保勞健保、加班無給、颱風天不補償等。玩家透過對話了解工時限制、國定假日薪資與勞健保義務，建立基本勞動法概念。
                 </p>
                 <a href="#" class="stage-link">Read More</a>
               </div>
-            </div>
+            </article>
 
-            <div
+            <!-- 02 -->
+            <article
               class="stage-card"
-              style="--bg:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80')"
+              style="--bg:url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/02.jpg')"
             >
               <div class="stage-card-content">
                 <span class="stage-no">02</span>
-                <h3>加班文化</h3>
+                <h3>保險有我一份嗎？</h3>
                 <p>
-                  面對「責任制」與「打卡後繼續工作」，讓玩家思考什麼才是合理工時。
+                  聚焦職場安全與職災補償。透過梨梨學姊的受傷事件，讓玩家理解職安環境、未成年工讀生特殊保護、雇主申請職災補償的義務，並以選擇題檢視自身對法規的判斷能力。
                 </p>
                 <a href="#" class="stage-link">Read More</a>
               </div>
-            </div>
+            </article>
 
-            <div
+            <!-- 03 -->
+            <article
               class="stage-card"
-              style="--bg:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80')"
+              style="--bg:url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/03.jpg')"
             >
               <div class="stage-card-content">
                 <span class="stage-no">03</span>
-                <h3>不當指令</h3>
+                <h3>打工路上那些坑</h3>
                 <p>
-                  主管要求做與職務無關的危險工作，玩家必須決定如何保護自己。
+                  以日記形式揭露非法仲介、高壓推銷、強迫加班、預扣工資等職場陷阱。玩家需從日記中找出違法內容並對應勞基法條，透過解謎逐步拼出隱藏密碼，揭露詐騙型打工的危險。
                 </p>
                 <a href="#" class="stage-link">Read More</a>
               </div>
-            </div>
-          </div>
+            </article>
 
-          <!-- 第二組 3 關 -->
-          <div class="stage-group">
-            <div
+            <!-- 04 -->
+            <article
               class="stage-card"
-              style="--bg:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80')"
+              style="--bg:url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/04.jpg')"
             >
               <div class="stage-card-content">
                 <span class="stage-no">04</span>
-                <h3>職場騷擾</h3>
+                <h3>打工路上那些臉色</h3>
                 <p>
-                  卡片會呈現不同類型的騷擾情境，讓玩家理解蒐證與求助管道。
+                  探討就業歧視，包括容貌、性別、年齡、種族與工會身分等。玩家需透過情境題辨識歧視類型並計算密碼，最終協助莓莓提出「制服尺寸限制」的歧視申訴。
                 </p>
                 <a href="#" class="stage-link">Read More</a>
               </div>
-            </div>
+            </article>
 
-            <div
+            <!-- 05 -->
+            <article
               class="stage-card"
-              style="--bg:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80')"
+              style="--bg:url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/05.jpg')"
             >
               <div class="stage-card-content">
                 <span class="stage-no">05</span>
-                <h3>權益談判</h3>
+                <h3>正義的碎片</h3>
                 <p>
-                  模擬與主管協商調班、請假與加班費的過程，練習如何有自信說話。
+                  呈現就業歧視申訴流程：收件、審查、調查、會議到處分。玩家拼出六張流程圖找出密碼，並聽取莓莓的語音，理解申訴如何真正落實與維護勞工權益。
                 </p>
                 <a href="#" class="stage-link">Read More</a>
               </div>
-            </div>
+            </article>
 
-            <div
+            <!-- 06 -->
+            <article
               class="stage-card"
-              style="--bg:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80')"
+              style="--bg:url('https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/Scene/06.jpg')"
             >
               <div class="stage-card-content">
                 <span class="stage-no">06</span>
-                <h3>離職與未來</h3>
+                <h3>老闆要詐騙？不存在的！</h3>
                 <p>
-                  最後一關讓玩家回顧整個旅程，思考自己下一步與職涯選擇。
+                  以協助朋友西西避免海外詐騙打工為主題。玩家需找出高薪詐騙的可疑點，並用防護措施卡對應詐騙手法，最後理解核對職缺資訊、維持聯繫與不預付費用的重要性。
                 </p>
                 <a href="#" class="stage-link">Read More</a>
               </div>
-            </div>
+            </article>
           </div>
         </div>
+
+        <!-- 右箭頭 -->
+        <button class="stage-arrow stage-arrow-right" aria-label="下一關">
+          &#10095;
+        </button>
       </div>
 
+      <!-- 藍點：六關六顆 -->
       <div class="stage-dots">
-        <button class="stage-dot active" data-slide="0"></button>
-        <button class="stage-dot" data-slide="1"></button>
+        <button class="stage-dot active" data-index="0"></button>
+        <button class="stage-dot" data-index="1"></button>
+        <button class="stage-dot" data-index="2"></button>
+        <button class="stage-dot" data-index="3"></button>
+        <button class="stage-dot" data-index="4"></button>
+        <button class="stage-dot" data-index="5"></button>
       </div>
     </section>
+
 
     <!-- 作者介紹（原樣保留） -->
     <section id="authors" class="section authors-section">
       <div class="section-header">
-        <p class="section-kicker">TEAM</p>
-        <h2 class="section-title">LOUD工進行式 開發團隊</h2>
+        <p class="section-kicker">LOUD工進行式</p>
+        <h2 class="section-title">開發團隊</h2>
       </div>
 
       <div class="card-grid author-grid">
         <article class="author-card">
           <div class="author-image">
             <img
-              src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=800&q=80"
-              alt="作者1"
+              src="https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/author/Lin.JPG"
+              alt="隊長"
             />
             <div class="author-overlay">
               <a href="#" aria-label="Facebook">F</a>
@@ -330,7 +389,7 @@
             </div>
           </div>
           <div class="author-info">
-            <h3>顏智勇</h3>
+            <h3>隊長 林真伶</h3>
             <p>企劃 / 系統設計</p>
           </div>
         </article>
@@ -338,8 +397,8 @@
         <article class="author-card">
           <div class="author-image">
             <img
-              src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=800&q=80"
-              alt="作者2"
+              src="https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/author/Lai.jpg"
+              alt="組員1"
             />
             <div class="author-overlay">
               <a href="#" aria-label="Facebook">F</a>
@@ -348,16 +407,16 @@
             </div>
           </div>
           <div class="author-info">
-            <h3>組員 A</h3>
-            <p>美術 / UI 設計</p>
+            <h3>組員 賴玲</h3>
+            <p>美術 / UI設計</p>
           </div>
         </article>
 
         <article class="author-card">
           <div class="author-image">
             <img
-              src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=800&q=80"
-              alt="作者3"
+              src="https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/author/Yong.jpg"
+              alt="組員2"
             />
             <div class="author-overlay">
               <a href="#" aria-label="Facebook">F</a>
@@ -366,7 +425,7 @@
             </div>
           </div>
           <div class="author-info">
-            <h3>組員 B</h3>
+            <h3>組員 顏智勇</h3>
             <p>程式 / 系統實作</p>
           </div>
         </article>
@@ -374,8 +433,8 @@
         <article class="author-card">
           <div class="author-image">
             <img
-              src="https://images.unsplash.com/photo-1525134155941-2c4f79935b2d?auto=format&fit=crop&w=800&q=80"
-              alt="作者4"
+              src="https://raw.githubusercontent.com/GANSHIYONG/portfolio-site/main/ps/author/En.jpg"
+              alt="組員4"
             />
             <div class="author-overlay">
               <a href="#" aria-label="Facebook">F</a>
@@ -384,7 +443,25 @@
             </div>
           </div>
           <div class="author-info">
-            <h3>指導老師</h3>
+            <h3>組員 丁玄恩</h3>
+            <p>程式 / 系統實作</p>
+          </div>
+        </article>
+        
+        <article class="author-card">
+          <div class="author-image">
+            <img
+              src="https://images.unsplash.com/photo-1525134155941-2c4f79935b2d?auto=format&fit=crop&w=800&q=80"
+              alt="指導老師"
+            />
+            <div class="author-overlay">
+              <a href="#" aria-label="Facebook">F</a>
+              <a href="#" aria-label="Twitter">T</a>
+              <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+          </div>
+          <div class="author-info">
+            <h3>指導老師 鄭朝陽</h3>
             <p>指導 / 研究諮詢</p>
           </div>
         </article>
@@ -444,4 +521,9 @@
 
     <script src="./script.js"></script>
   </body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
 </html>
