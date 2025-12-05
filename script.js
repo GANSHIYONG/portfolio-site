@@ -7,29 +7,19 @@ if (homeLink) {
   });
 }
 
-// Hero 背景輪播
-const hero = document.querySelector(".hero");
-
-// 這裡換成你的遊戲截圖
-const heroImages = [
-  "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80"
-];
-
+// Hero 背景輪播：改成向左滑動切換
+const heroSlider = document.querySelector(".hero-slider");
+const heroSlides = document.querySelectorAll(".hero-slide");
 let heroIndex = 0;
 
-function setHeroBackground(index) {
-  if (!hero) return;
-  hero.style.backgroundImage = `url('${heroImages[index]}')`;
+function slideHero() {
+  if (!heroSlider || heroSlides.length === 0) return;
+  heroIndex = (heroIndex + 1) % heroSlides.length;
+  heroSlider.style.transform = `translateX(-${heroIndex * 100}%)`;
 }
 
-setHeroBackground(heroIndex);
-
-setInterval(() => {
-  heroIndex = (heroIndex + 1) % heroImages.length;
-  setHeroBackground(heroIndex);
-}, 4000);
+// 每 4 秒滑動一次
+setInterval(slideHero, 4000);
 
 // Hero 內按鈕捲動
 const scrollToGameBtn = document.querySelector(".scroll-to-game");
@@ -49,29 +39,54 @@ if (scrollToBackgroundBtn) {
   });
 }
 
-// 關卡輪播：兩組卡片，每 3 秒切換一次
+/* =========================
+   關卡輪播：一次顯示 1 張
+   左右按鈕 + 5 秒自動切換
+   ========================= */
+
 const stageTrack = document.querySelector(".stage-track");
+const stageCards = document.querySelectorAll(".stage-card");
 const stageDots = document.querySelectorAll(".stage-dot");
-let currentStageSlide = 0;
-const totalStageSlides = 2;
+const stagePrev = document.querySelector(".stage-arrow-left");
+const stageNext = document.querySelector(".stage-arrow-right");
+
+let currentStageIndex = 0;
 let stageTimer = null;
 
-function goToStageSlide(index) {
-  currentStageSlide = index;
-  if (stageTrack) {
-    stageTrack.style.transform = `translateX(-${index * 100}%)`;
-  }
-  stageDots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
+// 更新位移＆藍點
+function updateStageSlider() {
+  if (!stageTrack || stageCards.length === 0) return;
+
+  const offset = currentStageIndex * 100;
+  stageTrack.style.transform = `translateX(-${offset}%)`;
+
+  stageDots.forEach((dot, idx) => {
+    dot.classList.toggle("active", idx === currentStageIndex);
   });
 }
 
+// 切換到指定關卡（含首尾循環）
+function goToStage(index) {
+  const total = stageCards.length;
+  if (total === 0) return;
+
+  if (index < 0) {
+    currentStageIndex = total - 1; // 從第一關往左 → 跳到最後一關
+  } else if (index >= total) {
+    currentStageIndex = 0; // 從最後一關往右 → 回到第一關
+  } else {
+    currentStageIndex = index;
+  }
+
+  updateStageSlider();
+}
+
+// 自動輪播（5 秒）
 function startStageAutoSlide() {
   stopStageAutoSlide();
   stageTimer = setInterval(() => {
-    const next = (currentStageSlide + 1) % totalStageSlides;
-    goToStageSlide(next);
-  }, 3000);
+    goToStage(currentStageIndex + 1);
+  }, 5000);
 }
 
 function stopStageAutoSlide() {
@@ -81,19 +96,40 @@ function stopStageAutoSlide() {
   }
 }
 
-stageDots.forEach((dot) => {
+// 點藍點切換
+stageDots.forEach((dot, idx) => {
   dot.addEventListener("click", () => {
-    const index = Number(dot.dataset.slide || 0);
-    goToStageSlide(index);
-    startStageAutoSlide();
+    goToStage(idx);
+    startStageAutoSlide(); // 手動後重新計時
   });
 });
 
-goToStageSlide(0);
+// 左右按鈕
+if (stagePrev) {
+  stagePrev.addEventListener("click", () => {
+    // 左按鈕 → 卡片向右移動，看到上一關
+    goToStage(currentStageIndex - 1);
+    startStageAutoSlide();
+  });
+}
+
+if (stageNext) {
+  stageNext.addEventListener("click", () => {
+    // 右按鈕 → 卡片向左移動，看到下一關
+    goToStage(currentStageIndex + 1);
+    startStageAutoSlide();
+  });
+}
+
+// 視窗尺寸改變時，重新套用 transform
+window.addEventListener("resize", updateStageSlider);
+
+// 初始化
+goToStage(0);
 startStageAutoSlide();
 
 /* =========================
-   角色卡片輪播（3 張一組）
+   角色卡片輪播（3 張一組，原本的保留）
    ========================= */
 
 const charTrack = document.querySelector(".character-track");
@@ -105,37 +141,26 @@ const VISIBLE_COUNT = 3; // 一次顯示 3 張
 let charIndex = 0;
 let charTimer = null;
 
-// =========================
-//  更新卡片位置（自動計算卡片寬度 + gap）
-// =========================
+// 更新角色卡片位置（自動計算寬度 + gap）
 function updateCharacterSlider() {
   if (!charTrack || charCards.length === 0) return;
 
-  // 讀取 CSS 中的 gap
   const trackStyle = window.getComputedStyle(charTrack);
   const gap = parseInt(trackStyle.gap || trackStyle.columnGap || "0", 10);
-
-  // 取得卡片實際寬度（RWD 自適應）
   const cardWidth = charCards[0].offsetWidth;
-
-  // 位移距離 = （卡片寬度 + gap）× index
   const moveX = (cardWidth + gap) * charIndex;
 
   charTrack.style.transform = `translateX(-${moveX}px)`;
 }
 
-// =========================
-//  循環切換卡片
-// =========================
+// 切換到指定角色組
 function goToCharacter(index) {
   const totalCards = charCards.length;
   const maxIndex = totalCards - VISIBLE_COUNT;
 
   if (index < 0) {
-    // 從第一張往左 → 跳到最後一組
     charIndex = maxIndex;
   } else if (index > maxIndex) {
-    // 從最後一組往右 → 回到第一組
     charIndex = 0;
   } else {
     charIndex = index;
@@ -144,9 +169,7 @@ function goToCharacter(index) {
   updateCharacterSlider();
 }
 
-// =========================
-//  自動輪播（5 秒）
-// =========================
+// 自動輪播（5 秒）
 function startCharacterAutoSlide() {
   stopCharacterAutoSlide();
   charTimer = setInterval(() => {
@@ -161,13 +184,11 @@ function stopCharacterAutoSlide() {
   }
 }
 
-// =========================
-//  左右按鈕事件
-// =========================
+// 左右按鈕事件
 if (btnPrev) {
   btnPrev.addEventListener("click", () => {
     goToCharacter(charIndex - 1);
-    startCharacterAutoSlide(); // 手動後重新計時
+    startCharacterAutoSlide();
   });
 }
 
@@ -179,8 +200,11 @@ if (btnNext) {
 }
 
 // RWD：視窗改變大小時，自動重新對齊
-window.addEventListener("resize", updateCharacterSlider);
+window.addEventListener("resize", () => {
+  updateCharacterSlider();
+  updateStageSlider();
+});
 
-// 初始化
+// 初始化角色輪播
 updateCharacterSlider();
 startCharacterAutoSlide();
