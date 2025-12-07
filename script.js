@@ -1,12 +1,3 @@
-// 首頁按鈕：重新整理頁面
-const homeLink = document.querySelector(".home-link");
-if (homeLink) {
-  homeLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.reload();
-  });
-}
-
 // Hero 背景輪播：改成向左滑動切換
 const heroSlider = document.querySelector(".hero-slider");
 const heroSlides = document.querySelectorAll(".hero-slide");
@@ -208,3 +199,56 @@ window.addEventListener("resize", () => {
 // 初始化角色輪播
 updateCharacterSlider();
 startCharacterAutoSlide();
+
+/* =====================================
+   自訂滑動速度版本（可調整 duration）
+   ===================================== */
+
+function smoothScrollTo(targetY, duration = 800) {  
+  const startY = window.pageYOffset;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function animation(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // ease-out 動畫
+    const easing = 1 - Math.pow(1 - progress, 3);
+
+    window.scrollTo(0, startY + distance * easing);
+
+    if (progress < 1) requestAnimationFrame(animation);
+  }
+  requestAnimationFrame(animation);
+}
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const href = link.getAttribute("href");
+    if (!href.startsWith("#")) return;
+
+    e.preventDefault();
+
+    const header = document.querySelector(".site-header");
+    const headerHeight = header ? header.offsetHeight : 0;
+
+    if (href === "#home") {
+      smoothScrollTo(0, 800); 
+      return;
+    }
+
+    const target = document.querySelector(href);
+    if (target) {
+      const targetTop =
+        target.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight;
+
+      smoothScrollTo(targetTop, 800);
+    }
+  });
+});
+
