@@ -779,3 +779,58 @@ img {
     right: 4px;
   }
 }
+
+/* 勞工知識區塊 */
+.knowledge-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.knowledge-select-wrapper {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+#knowledgeSelect {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+}
+
+.knowledge-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.knowledge-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+}
+
+.knowledge-card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.knowledge-card p {
+  margin: 0;
+  color: #5b6479;
+  font-size: 0.9rem;
+}
+
+/* 手機 RWD */
+@media (max-width: 768px) {
+  .knowledge-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
