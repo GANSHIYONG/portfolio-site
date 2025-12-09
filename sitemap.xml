@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 主頁 -->
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/</loc>
+  </url>
+
+  <!-- 各區段（錨點） -->
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/#game</loc>
+  </url>
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/#background</loc>
+  </url>
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/#characters</loc>
+  </url>
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/#stages</loc>
+  </url>
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/#author</loc>
+  </url>
+  <url>
+    <loc>https://ganshiyong.github.io/portfolio-site/#contact</loc>
+  </url>
+
+</urlset>
