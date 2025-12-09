@@ -63,18 +63,25 @@
         <p class="section-kicker">GAME</p>
         <h2 class="section-title">直接在網頁中遊玩 LOUD 工進行式</h2>
         <p class="section-desc">
-          將 Unity / WebGL 或其他平台的遊戲頁嵌入在這裡，讓玩家不需要跳轉就能體驗。
+          下方為透過 itch.io 嵌入的遊戲版本，不需跳轉頁面即可直接體驗完整流程。
         </p>
       </div>
-
-      <div class="game-frame">
-        <!-- TODO：把 src 改成你的遊戲網址 -->
+    
+      <!-- 外框：負責置中與比例 -->
+      <div class="game-frame-wrapper">
+        <!-- 這裡放你的 itch.io 嵌入程式碼（有稍微改寫以配合 RWD） -->
         <iframe
-          src="https://example.com"
-          title="遊戲嵌入"
-          loading="lazy"
+          src="https://itch.io/embed-upload/15788716?color=333333"
+          frameborder="0"
           allowfullscreen
-        ></iframe>
+          loading="lazy"
+          title="LOUD工進行式｜互動勞動教育遊戲"
+          class="game-iframe"
+        >
+          <a href="https://gz-yong.itch.io/loud-game">
+            Play LOUD工進行式｜互動勞動教育遊戲 on itch.io
+          </a>
+        </iframe>
       </div>
     </section>
 
